@@ -44,7 +44,7 @@ const AuthContextProvider = ({ children }) => {
     console.log(token);
     if (token) {
       try {
-        await axios.get("http://localhost:8080/api/user/verify", {
+        await axios.get("http://localhost:8080/api/user/authorize", {
           headers: { authorization: `Bearer ${token}` },
         });
         setLoggedIn(true);
