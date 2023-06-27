@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
+
+.flex-signin{
+    position: fixed;
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: calc(100vh - 3rem);
+    align-items: center;
+}
+
+.form-signin, .form-signup{
+    width: min(20rem, 100vw);
+    & *{
+        width: 90%;
+    } 
+    & label{
+        margin-inline: 1rem;
+    }
+    & input{
+        margin-inline: 1rem;
+        height: 2.5rem;
+        padding: .5rem;
+        background-color: inherit;
+        border: 1px solid rgba(141, 141, 141, 0.636);
+        margin-bottom: .5rem;
+        margin-top: .25rem;
+    }
+    & h2, p{
+        text-align: center;
+        margin: auto;
+        width: 70%;
+        margin-bottom: 1rem;
+    }
+
+    & h2{
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    & button{
+        height: 2.5rem;
+        margin: .25rem 1rem;
+    }
+}
+
+.image-curtain-left, .image-curtain-right{
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    background-image: url("../../assets/images/signup.png");
+    background-size: cover;
+    background-position: -1rem;
+    border-radius: 1rem;
+    background-color: inherit;
+    transition: all .6s ;
+    backface-visibility: visible;
+    & h1{
+        text-align: center;
+        padding-top: 2rem;
+        font-size: 5rem;
+        color: white;
+        font-family: 'Zeyada', cursive;
+        position: absolute;
+        bottom: 2rem;
+        width: 100%;
+        transition: all .8s ;
+        backface-visibility: visible;
+    }
+
+   
+}
+
+.image-curtain-left{
+    left: 0;
+}
+
+.image-curtain-right{
+    left: 50%;
+    transform: rotateY(180deg);
+    & h1{
+        transform: rotateY(-180deg);
+    }
+}

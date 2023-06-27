@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+
+.top-bar{
+    position: relative;
+    border-bottom: 1px solid rgba(141, 141, 141, 0.636);
+    margin: 0;
+    padding-top: .5rem;
+    padding-inline: 1rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    overflow: hidden;
+    & a, button{
+        padding: .5rem;
+    }
+}
+
+.logo {
+    font-family: 'Zeyada', cursive;
+    font-size: 2rem;
+    margin-bottom: -.75rem;
+    position: absolute;
+    left: 1rem;
+}
+
+.search-icon, .compass-icon, .heart-icon{
+    position: relative;
+    bottom: .12rem;
+}
+
+.extend-button{
+    transition: transform .4s ;
+    cursor: pointer;
+}
+
+.buttons-right{
+    position: absolute;
+    display: flex;
+    transition: .4s;
+    right: -11rem;
+}
+
+.nav-extended{
+    right: -2rem;
+}
+
+.nav-extended .extend-button{
+    transform: rotate(180deg);
+}
+
+
+
+nav .extend-button *{
+    position: relative;
+    top: .1rem;
+}
+
+nav a, button{
+    height: 100%;
+}
+
+button{
+    cursor: pointer;
+}
