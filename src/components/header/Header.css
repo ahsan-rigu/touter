@@ -12,7 +12,10 @@
     align-items: center;
     height: 3rem;
     overflow: hidden;
-    & a, button{
+    & a{
+        padding: .5rem;
+    }
+    & button{
         padding: .5rem;
     }
 }
@@ -42,8 +45,16 @@
     right: -11rem;
 }
 
+button:hover svg, a:hover svg{
+    color: #ff007b;
+}
+
 .nav-extended{
     right: -2rem;
+}
+
+#upload_widget{
+    padding: .5rem;
 }
 
 .nav-extended .extend-button{
@@ -57,7 +68,7 @@ nav .extend-button *{
     top: .1rem;
 }
 
-nav a, button{
+nav a, nav button{
     height: 100%;
 }
 

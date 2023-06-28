@@ -6,9 +6,11 @@ export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const { loggedIn } = useContext(AuthContext);
+
   const [user, setUser] = useState({});
 
   const fetchUser = async () => {
+    console.log("hey");
     try {
       const token = localStorage.getItem("token");
       if (token) {
@@ -32,9 +34,7 @@ const UserContextProvider = ({ children }) => {
   }, [loggedIn]);
 
   return (
-    <UserContext.Provider value={{ hey: "asdj" }}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
   );
 };
 

@@ -41,7 +41,6 @@ const AuthContextProvider = ({ children }) => {
 
   const verify = async () => {
     const token = localStorage.getItem("token");
-    console.log(token);
     if (token) {
       try {
         await axios.get("http://localhost:8080/api/user/authorize", {

@@ -1,0 +1,124 @@
+
+
+
+.thumbnail-small{
+    width: 5rem;
+    border-radius: 2.5rem;
+    vertical-align: top;
+    margin-left: 2rem;
+}
+
+.create-post{
+    position: relative;
+}
+
+.btn-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.btn-warn{
+    color: red;
+}
+
+.user-tags{
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1rem;
+    & b{
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
+
+.create-post form{
+    margin: 2rem;
+
+    & textarea{
+        border-radius: .5rem;
+        margin-bottom: .5rem;
+        height: min(40vh, 20rem);
+    }
+}
+
+.media-buttons{
+    display: flex;
+    justify-content: space-between;
+    & svg{
+        width: 3rem;
+    }
+
+    & .smile{
+        margin-top: .25rem;
+    }
+}
+
+
+/* creat button...copied */
+
+.btn-post{
+    align-self: center;
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+.btn-post {
+    font-family: inherit;
+    font-size: 20px;
+    background: rgb(255, 0, 136);
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  
+  .btn-post span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-post svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .btn-post svg{
+    color: white !important;
+  }
+  
+  .btn-post:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  .btn-post:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  .btn-post:hover span {
+    transform: translateX(5em);
+  }
+  
+  .btn-post:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+  

@@ -8,11 +8,25 @@ import SIgninSignup from "./pages/signin-signup/SIgninSignup";
 import Explore from "./pages/explore/Explore";
 import RequiresAuth from "./utils/RequiresAuth";
 import { Toaster } from "react-hot-toast";
+import CreateButton from "./components/buttons/CreateButton";
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+import { PostContext } from "./contexts/PostContext";
+import Create from "./components/create/Create";
 
 function App() {
+  const { loggedIn } = useContext(AuthContext);
+  const { createPostModal } = useContext(PostContext);
+
   return (
     <div className="App">
-      <Header />
+      {loggedIn && (
+        <>
+          <Header />
+          <CreateButton />
+          {createPostModal && <Create />}
+        </>
+      )}
       <Routes>
         <Route
           path="/"
