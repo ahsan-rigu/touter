@@ -38,7 +38,7 @@ const Header = () => {
         <Link>
           <BsSearch size={"1.5rem"} className="search-icon" />
         </Link>
-        <Link>
+        <Link to="explore">
           <SlCompass size={"1.5rem"} className="compass-icon" />
         </Link>
         <Link>
