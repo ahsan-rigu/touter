@@ -1,0 +1,154 @@
+
+.page{
+    padding-inline: 3rem;
+}
+
+.post-card{
+    position: relative;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    & img{
+        max-width: 100%;
+    }
+    & p{
+        padding: .5rem;
+    }
+
+    & .thumbnail{
+        width: 3rem;
+        border-radius: 1.5rem;
+        margin: .5rem;
+    }
+
+    & .media-buttons{
+        padding-top: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    & .user-tags{ 
+        margin-top: 1rem;
+        padding: 0;
+        vertical-align: top;
+        & b{
+            font-size: 1rem;
+        }
+        & em{
+            font-size: .75rem;
+        }
+    }
+
+    & button.active svg{
+        color: #ff007b;
+    }
+
+    & .top-right{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        & button{
+            width: 2rem;
+        }
+    }
+    & .liked-counter{
+        font-size: .8rem;
+        padding-top: 0;
+        margin-bottom: .25rem;
+        cursor: pointer;
+    }
+}
+
+
+.rigth-auto{
+    margin-right: auto;
+}
+
+.comment-input{
+    width: calc(100% - 2rem);
+    position: relative;
+    margin: auto;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    & input{
+        width: 100%;
+        margin: auto;
+        height: 2rem;
+        background-color: transparent;
+        border: 1px solid grey;
+        padding: .25rem;
+    }
+
+    & button{
+        position: absolute;
+        top: .25rem;
+        right: .25rem;
+    }
+
+
+}
+
+.comment{
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+
+.comment.top-right{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.comment:last-of-type{
+    border-bottom: none;
+}
+
+.comment .thumbnail, .comment .user-tags{
+    transform: scale(.9);
+    margin-left: 1rem;
+    margin-bottom: 0;
+}
+
+.comment .user-tags{
+    margin-left: 0rem;
+}
+
+.comment p{
+    margin-left: 1.5rem;
+    margin-top: -.5rem;
+}
+
+.modal-narrow{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: .5rem;
+    background-color: inherit;
+    overflow: scroll;
+    height: 100%;
+    opacity: 100%;
+    z-index: 800;
+
+    & h2{
+        text-align: center;
+    }
+
+    & .link *{
+        cursor: pointer;
+    }
+
+    & .top-right{
+        background-color: inherit;
+        z-index: 999;
+        position: fixed;
+    }
+
+}
+
+.link{
+    cursor: pointer;
+}

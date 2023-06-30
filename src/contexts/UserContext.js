@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
+import { Toaster, toast } from "react-hot-toast";
 
 export const UserContext = createContext();
 
@@ -10,7 +11,6 @@ const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   const fetchUser = async () => {
-    console.log("hey");
     try {
       const token = localStorage.getItem("token");
       if (token) {
@@ -21,11 +21,76 @@ const UserContextProvider = ({ children }) => {
           }
         );
         setUser(res.data.user);
-      } else {
-        throw new Error();
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const followUnfollow = async (followingID) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.post(
+        "http://localhost:8080/api/user/follow",
+        { followingID },
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+      fetchUser();
+      toast.success(res.data.message, {
+        id: "followedUnfollowed",
+      });
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        id: "cantfolloworunfollow",
+      });
+    }
+  };
+
+  const bookmark = async (_id) => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.post(
+        "http://localhost:8080/api/user/bookmark",
+        {
+          postID: _id,
+        },
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+      fetchUser();
+      toast.success(res.data.message, {
+        id: "bookmarksuccess",
+      });
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        id: "cantbookmark",
+      });
+    }
+  };
+
+  const removeBookmark = async (_id) => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.post(
+        "http://localhost:8080/api/user/remove-bookmark",
+        {
+          postID: _id,
+        },
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+      fetchUser();
+      toast.success(res.data.message, {
+        id: "bookmarkremovesuccess",
+      });
+    } catch (error) {
+      toast.error(error.response.data.message, {
+        id: "cantremovebookmark",
+      });
     }
   };
 
@@ -34,7 +99,12 @@ const UserContextProvider = ({ children }) => {
   }, [loggedIn]);
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider
+      value={{ user, fetchUser, followUnfollow, bookmark, removeBookmark }}
+    >
+      {children}
+      <Toaster />
+    </UserContext.Provider>
   );
 };
 

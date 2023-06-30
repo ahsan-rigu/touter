@@ -1,0 +1,27 @@
+footer.footer{
+    position: fixed ;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    border-top: 1px solid grey;
+    & a{
+        padding: .5rem;
+    }
+}
+
+.page>div>span{
+    height: fit-content;
+}
+
+@media only screen and (width < 768px){
+    footer.footer{
+        display: flex;
+        & .tooltip{
+            display: none;
+        }
+    }
+}

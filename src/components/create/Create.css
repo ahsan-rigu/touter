@@ -110,6 +110,16 @@
   .btn-post:active {
     transform: scale(0.95);
   }
+
+  .emoji-button{
+    position: relative;
+  }
+
+  .emoji-mart{
+    position: absolute;
+    bottom: -5rem;
+    left: 3rem;
+  }
   
   @keyframes fly-1 {
     from {

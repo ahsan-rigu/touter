@@ -1,26 +1,22 @@
 import axios from "axios";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import StackGrid from "react-stack-grid";
 import PostCard from "../../components/post-card/PostCard";
-import Loader from "../../components/Loader";
 import { PostContext } from "../../contexts/PostContext";
+import Loader from "../../components/Loader";
 
-const Feed = () => {
+const Bookmarked = () => {
   const [posts, setPosts] = useState([]);
   const { refresh } = useContext(PostContext);
   const [loading, setLoading] = useState(true);
 
-  const windowWidth = useRef(window.innerWidth);
-
-  const columnWidth = windowWidth.current > 620 ? 300 : windowWidth.current - 3;
-
   const fetchPosts = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:8080/api/post/feed", {
+      const res = await axios.get("http://localhost:8080/api/post/bookmarked", {
         headers: { authorization: `Bearer ${token}` },
       });
-      setPosts(res.data);
+      setPosts([...res.data]);
     } catch (error) {
       console.log(error);
     } finally {
@@ -30,6 +26,10 @@ const Feed = () => {
 
   useEffect(() => {
     fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    if (refresh) fetchPosts();
   }, [refresh]);
 
   return (
@@ -37,7 +37,7 @@ const Feed = () => {
       {loading ? (
         <Loader />
       ) : (
-        <StackGrid columnWidth={columnWidth}>
+        <StackGrid columnWidth={300}>
           {posts.map((post) => (
             <PostCard post={post} key={post._id} fetchPosts={fetchPosts} />
           ))}
@@ -50,4 +50,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default Bookmarked;

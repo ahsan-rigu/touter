@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 
 
+
+
 .top-bar{
-    position: relative;
+    position: sticky;
+    top: 0;
     border-bottom: 1px solid rgba(141, 141, 141, 0.636);
     margin: 0;
     padding-top: .5rem;
@@ -11,7 +14,9 @@
     justify-content: center;
     align-items: center;
     height: 3rem;
-    overflow: hidden;
+    z-index: 800;
+
+    margin-bottom: 1rem;
     & a{
         padding: .5rem;
     }
@@ -60,6 +65,8 @@ button:hover svg, a:hover svg{
 .nav-extended .extend-button{
     transform: rotate(180deg);
 }
+
+
 
 
 

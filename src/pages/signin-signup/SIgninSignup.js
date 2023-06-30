@@ -1,44 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 import "./SigninSignup.css";
-import { toast } from "react-hot-toast";
 
 const SIgninSignup = () => {
   const { signup, signin, loggedIn } = useContext(AuthContext);
   const [signUp, setSignUp] = useState(false);
   const navigate = useNavigate();
 
-  if (loggedIn) {
-    navigate("/");
-  }
-
   const signupHandler = (event) => {
     event.preventDefault();
     const name = event.target[0].value;
     const username = event.target[1].value;
     const password = event.target[2].value;
-    toast.promise(signup({ name, username, password }), {
-      loading: "logging in...",
-      success: <b>logged in</b>,
-      error: <b>usernam password dont match</b>,
-    });
+    signup({ name, username, password });
   };
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/");
+    }
+  }, [loggedIn]);
 
   const signinHandler = (event) => {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
-    toast.promise(signin(username, password), {
-      loading: "logging in...",
-      success: <b>logged in</b>,
-      error: <b>username password don't match</b>,
-    });
+    signin(username, password);
   };
 
   return (
-    <>
+    !loggedIn && (
       <section className="flex-signin">
         <div className={signUp ? "image-curtain-right" : "image-curtain-left"}>
           <h1>TOUTER</h1>
@@ -88,7 +81,7 @@ const SIgninSignup = () => {
           </button>
         </form>
       </section>
-    </>
+    )
   );
 };
 

@@ -1,24 +1,34 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
+import Loader from "../components/Loader";
+import { Toaster, toast } from "react-hot-toast";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const signup = async (newUser) => {
+    setLoading(true);
     try {
       console.log(newUser);
       await axios.post("http://localhost:8080/api/user/signup", newUser);
-
+      toast.success("Signed Up", {
+        id: "signupsuccess",
+      });
       signin(newUser.username, newUser.password);
-      return "Signed Up";
     } catch (error) {
-      console.log(error);
+      toast.success(error.message, {
+        id: "signupfailed",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   const signin = async (username, password) => {
+    setLoading(true);
     try {
       const {
         data: { token },
@@ -28,18 +38,28 @@ const AuthContextProvider = ({ children }) => {
       });
       localStorage.setItem("token", token);
       setLoggedIn(true);
-      return "Signed In";
+      toast.success("Welcome Back", {
+        id: "loginSuccess",
+      });
     } catch (error) {
-      return Promise.reject();
+      toast.error(error.response.data.message, {
+        id: "loginfailed",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   const signOut = () => {
     localStorage.setItem("token", "");
     setLoggedIn(false);
+    toast.success("Logged Out", {
+      id: "loggedout",
+    });
   };
 
   const verify = async () => {
+    setLoading(true);
     const token = localStorage.getItem("token");
     if (token) {
       try {
@@ -47,13 +67,16 @@ const AuthContextProvider = ({ children }) => {
           headers: { authorization: `Bearer ${token}` },
         });
         setLoggedIn(true);
-        return "Logged In";
+        toast.success("Welcome Back", {
+          id: "tokenverified",
+        });
       } catch (error) {
-        return "Token Invalid";
+        toast.error("Login expired", {
+          id: "tokenexpired",
+        });
       }
-    } else {
-      return "No Token Found";
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -62,7 +85,8 @@ const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ loggedIn, signin, signup, signOut }}>
-      {children}
+      {loading ? <Loader /> : children}
+      <Toaster />
     </AuthContext.Provider>
   );
 };

@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/header/Header";
 import Feed from "./pages/feed/Feed";
 import Profile from "./pages/profile/Profile";
-import Post from "./pages/post/Post";
 import SIgninSignup from "./pages/signin-signup/SIgninSignup";
 import Explore from "./pages/explore/Explore";
 import RequiresAuth from "./utils/RequiresAuth";
@@ -13,10 +12,12 @@ import { useContext } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 import { PostContext } from "./contexts/PostContext";
 import Create from "./components/create/Create";
+import Bookmarked from "./pages/bookmarked/Bookmarked";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const { loggedIn } = useContext(AuthContext);
-  const { createPostModal } = useContext(PostContext);
+  const { createPostModal, editPost } = useContext(PostContext);
 
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
           <Header />
           <CreateButton />
           {createPostModal && <Create />}
+          {editPost._id && <Create />}
         </>
       )}
       <Routes>
@@ -45,6 +47,14 @@ function App() {
           }
         />
         <Route
+          path="/bookmarked"
+          element={
+            <RequiresAuth>
+              <Bookmarked />
+            </RequiresAuth>
+          }
+        />
+        <Route
           path="/profile/:username"
           element={
             <RequiresAuth>
@@ -52,17 +62,11 @@ function App() {
             </RequiresAuth>
           }
         />
-        <Route
-          path="/post/:postID"
-          element={
-            <RequiresAuth>
-              <Post />
-            </RequiresAuth>
-          }
-        />
         <Route path="/signin" element={<SIgninSignup />} />
       </Routes>
+
       <Toaster position="top-center" />
+      <Footer />
     </div>
   );
 }

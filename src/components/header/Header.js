@@ -7,42 +7,43 @@ import {
 } from "react-icons/ai";
 import { SlCompass } from "react-icons/sl";
 import {
-  BsBoxArrowRight,
+  BsBookmark,
   BsChatDots,
-  BsChevronDown,
   BsChevronLeft,
-  BsChevronRight,
-  BsCompass,
-  BsHeart,
   BsHouse,
-  BsPerson,
   BsSearch,
 } from "react-icons/bs";
 
 import "./Header.css";
 import { Link } from "react-router-dom";
 import ThemeButton from "../ThemeButton";
+import { UserContext } from "../../contexts/UserContext";
 
 const Header = () => {
   const { signOut } = useContext(AuthContext);
+  const { user } = useContext(UserContext);
   const [navExtend, setNavExtend] = useState(true);
 
   return (
     <header className="top-bar">
       <span className="logo">TOUTER</span>
-      <nav>
-        <Link>
+      <nav className="nav-pc-tab">
+        <Link to="/">
           <BsHouse size={"1.7rem"} />
+          <span className="tooltip-below">Home Feed</span>
         </Link>
 
-        <Link>
+        <Link to="/search">
           <BsSearch size={"1.5rem"} className="search-icon" />
+          <span className="tooltip-below">Search</span>
         </Link>
         <Link to="explore">
           <SlCompass size={"1.5rem"} className="compass-icon" />
+          <span className="tooltip-below">Explore</span>
         </Link>
-        <Link>
-          <BsHeart size={"1.5rem"} className="heart-icon" />
+        <Link to="/bookmarked">
+          <BsBookmark size={"1.5rem"} className="heart-icon" />
+          <span className="tooltip-below">Bookmarks</span>
         </Link>
       </nav>
       <nav
@@ -50,9 +51,11 @@ const Header = () => {
       >
         <Link>
           <BsChatDots size={"1.4rem"} />
+          <span className="tooltip-below">Chats</span>
         </Link>
-        <Link onClick={signOut}>
+        <Link to={"/profile/" + user.username}>
           <AiOutlineUser size={"1.5rem"} />
+          <span className="tooltip-below">Your Profile</span>
         </Link>
         <button
           onClick={() => setNavExtend((prev) => !prev)}

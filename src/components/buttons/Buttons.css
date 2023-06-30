@@ -1,7 +1,8 @@
 .btn-create {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 800;
     background: #ff008c;
     padding: 30px;
     color: #FFFFFF;
@@ -52,4 +53,30 @@
     z-index: -1;
     
   }
+
+  .tooltip-below{
+    position: absolute;
+    transition: all .6s;
+    opacity: 0;
+    top: 60%;
+    transform: translateX(-62%);
+    width: max-content;
+    z-index: 800;
+  }
+
+  
+
+  
+
+  button:hover .tooltip-below, a:hover .tooltip-below{
+    position: absolute;
+    top: 100%;
+    opacity: 1;
+    background-color: #ff008c;
+    border-radius: .5rem;
+    padding: .25rem .75rem;
+    z-index: 801;
+    }
+
+  
   

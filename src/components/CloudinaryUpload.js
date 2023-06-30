@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BsCamera, BsCameraVideo } from "react-icons/bs";
+import { BsCamera } from "react-icons/bs";
 
 class CloudinaryUploadWidget extends Component {
   componentDidMount() {
