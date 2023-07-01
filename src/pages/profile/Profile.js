@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import StackGrid from "react-stack-grid";
 import Loader from "../../components/Loader";
 import PostCard from "../../components/post-card/PostCard";
+import "./Profile.css";
 
 const Profile = () => {
   const { username } = useParams();
@@ -36,12 +37,20 @@ const Profile = () => {
     getProfile();
   }, []);
 
+  console.log(profile);
+
   return loading ? (
     <Loader />
   ) : (
     <div className="page">
       <StackGrid columnWidth={columnWidth}>
-        {/* <article className="profile-card card"></article> */}
+        <article className="profile-card card">
+          <img src={profile.coverPicture} alt="cover" />
+          <img src={profile.profilePicture} alt="dp" />
+          <button>{profile.following.length} following</button>
+          <button>{profile.followers.length} following</button>
+          <button>{profile.posts.length} posts</button>
+        </article>
         {profile.posts.map((post) => (
           <PostCard post={post} key={post._id} fetchPosts={getProfile} />
         ))}

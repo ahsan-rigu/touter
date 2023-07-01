@@ -15,37 +15,38 @@
 
 .form-signin, .form-signup{
     width: min(20rem, 100vw);
-    & *{
-        width: 90%;
-    } 
-    & label{
-        margin-inline: 1rem;
-    }
-    & input{
-        margin-inline: 1rem;
-        height: 2.5rem;
-        padding: .5rem;
-        background-color: inherit;
-        border: 1px solid rgba(141, 141, 141, 0.636);
-        margin-bottom: .5rem;
-        margin-top: .25rem;
-    }
-    & h2, p{
-        text-align: center;
-        margin: auto;
-        width: 70%;
-        margin-bottom: 1rem;
-    }
+}
 
-    & h2{
-        font-size: 2rem;
-        font-weight: 400;
-    }
+.form-signin *, .form-signup *{
+    width: 90%;
+} 
+.form-signin label, .form-signup label{
+    margin-inline: 1rem;
+}
+.form-signin input, .form-signup input{
+    margin-inline: 1rem;
+    height: 2.5rem;
+    padding: .5rem;
+    background-color: inherit;
+    border: 1px solid rgba(141, 141, 141, 0.636);
+    margin-bottom: .5rem;
+    margin-top: .25rem;
+}
+.form-signin h2, .form-signup h2, .form-signin p, .form-signup p{
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 1rem;
+}
 
-    & button{
-        height: 2.5rem;
-        margin: .25rem 1rem;
-    }
+.form-signin h2, .form-signup h2{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.form-signin button, .form-signup button{
+    height: 2.5rem;
+    margin: .25rem 1rem;
 }
 
 .image-curtain-left, .image-curtain-right{
@@ -59,20 +60,18 @@
     background-color: inherit;
     transition: all .6s ;
     backface-visibility: visible;
-    & h1{
-        text-align: center;
-        padding-top: 2rem;
-        font-size: 5rem;
-        color: white;
-        font-family: 'Zeyada', cursive;
-        position: absolute;
-        bottom: 2rem;
-        width: 100%;
-        transition: all .8s ;
-        backface-visibility: visible;
-    }
-
-   
+}
+.image-curtain-left h1, .image-curtain-right h1{
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 5rem;
+    color: white;
+    font-family: 'Zeyada', cursive;
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    transition: all .8s ;
+    backface-visibility: visible;
 }
 
 .image-curtain-left{
@@ -82,7 +81,8 @@
 .image-curtain-right{
     left: 50%;
     transform: rotateY(180deg);
-    & h1{
-        transform: rotateY(-180deg);
-    }
+}
+
+.image-curtain-right h1{
+    transform: rotateY(-180deg);
 }

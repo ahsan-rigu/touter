@@ -9,55 +9,57 @@
     margin-right: .5rem;
     border-radius: .5rem;
     overflow: hidden;
+}
 
-    & img{
-        max-width: 100%;
-    }
-    & p{
-        padding: .5rem;
-    }
+.post-card img{
+    max-width: 100%;
+}
+.post-card p{
+    padding: .5rem;
+}
 
-    & .thumbnail{
-        width: 3rem;
-        border-radius: 1.5rem;
-        margin: .5rem;
-    }
+.post-card .thumbnail{
+    width: 3rem;
+    border-radius: 1.5rem;
+    margin: .5rem;
+}
 
-    & .media-buttons{
-        padding-top: .5rem;
-        margin-bottom: .5rem;
-    }
+.post-card .media-buttons{
+    padding-top: .5rem;
+    margin-bottom: .5rem;
+}
 
-    & .user-tags{ 
-        margin-top: 1rem;
-        padding: 0;
-        vertical-align: top;
-        & b{
-            font-size: 1rem;
-        }
-        & em{
-            font-size: .75rem;
-        }
+.post-card .user-tags{ 
+    margin-top: 1rem;
+    padding: 0;
+    vertical-align: top;
+     b{
+        font-size: 1rem;
     }
+     em{
+        font-size: .75rem;
+    }
+}
 
-    & button.active svg{
-        color: #ff007b;
-    }
+.post-card button.active svg{
+    color: #ff007b;
+}
 
-    & .top-right{
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        & button{
-            width: 2rem;
-        }
-    }
-    & .liked-counter{
-        font-size: .8rem;
-        padding-top: 0;
-        margin-bottom: .25rem;
-        cursor: pointer;
-    }
+.post-card .top-right{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    
+}
+
+.post-card .top-right button{
+    width: 2rem;
+}
+.post-card .liked-counter{
+    font-size: .8rem;
+    padding-top: 0;
+    margin-bottom: .25rem;
+    cursor: pointer;
 }
 
 
@@ -73,23 +75,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    & input{
-        width: 100%;
-        margin: auto;
-        height: 2rem;
-        background-color: transparent;
-        border: 1px solid grey;
-        padding: .25rem;
-    }
+}
 
-    & button{
-        position: absolute;
-        top: .25rem;
-        right: .25rem;
-    }
+.comment-input input{
+    width: 100%;
+    margin: auto;
+    height: 2rem;
+    background-color: transparent;
+    border: 1px solid grey;
+    padding: .25rem;
+}
 
-
+.comment-input button{
+    position: absolute;
+    top: .25rem;
+    right: .25rem;
 }
 
 .comment{
@@ -132,21 +132,20 @@
     height: 100%;
     opacity: 100%;
     z-index: 800;
+}
 
-    & h2{
-        text-align: center;
-    }
+.modal-narrow h2 {
+    text-align: center;
+}
 
-    & .link *{
-        cursor: pointer;
-    }
+.modal-narrow .link *{
+    cursor: pointer;
+}
 
-    & .top-right{
-        background-color: inherit;
-        z-index: 999;
-        position: fixed;
-    }
-
+.modal-narrow .top-right{
+    background-color: inherit;
+    z-index: 999;
+    position: fixed;
 }
 
 .link{

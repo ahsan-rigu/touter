@@ -17,12 +17,13 @@
     z-index: 800;
 
     margin-bottom: 1rem;
-    & a{
-        padding: .5rem;
-    }
-    & button{
-        padding: .5rem;
-    }
+}
+
+.top-bar a{
+    padding: .5rem;
+}
+.top-bar button{
+    padding: .5rem;
 }
 
 .logo {
@@ -47,7 +48,7 @@
     position: absolute;
     display: flex;
     transition: .4s;
-    right: -11rem;
+    right: -10rem;
 }
 
 button:hover svg, a:hover svg{

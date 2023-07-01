@@ -155,10 +155,29 @@ textarea{
   animation-iteration-count: infinite;
 }
 
+
+.tooltip-below{
+  pointer-events: none;
+}
+
 @keyframes blip {
   from {width: calc(100vw - 2px);}
   to {width: 100vw;}
 }
+
+body{
+  overflow-x: hidden;
+}
+
+body div>span{
+  opacity: 1 !important;
+}
+
+img{
+  max-width: 100%;
+}
+
+
 
 @media only screen and (width <= 620px) {
   body {  
@@ -166,9 +185,7 @@ textarea{
     max-width: 100vw;
     overflow-x: hidden;
 
-    & header{
-      overflow-x: hidden;
-    }
+
 
     & .page{
       padding: 0;

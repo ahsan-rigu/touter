@@ -35,16 +35,19 @@
 .create-post form{
     margin: 2rem;
 
-    & textarea{
-        border-radius: .5rem;
-        margin-bottom: .5rem;
-        height: min(40vh, 20rem);
-    }
+    
+}
+
+.create-post form textarea{
+  border-radius: .5rem;
+  margin-bottom: .5rem;
+  height: min(40vh, 20rem);
 }
 
 .media-buttons{
     display: flex;
     justify-content: space-between;
+
     & svg{
         width: 3rem;
     }
