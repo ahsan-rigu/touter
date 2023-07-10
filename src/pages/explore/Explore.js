@@ -79,18 +79,9 @@ const Explore = () => {
             {sortHelper(posts, sort).map((post) => (
               <PostCard post={post} key={post._id} fetchPosts={fetchPosts} />
             ))}
-            {page * 10 > posts.length && (
-              <div className="end-reached card">
-                {"YOU HAVE REACHED THE END : ("}{" "}
-              </div>
-            )}
-            {page * 10 <= posts.length && (
-              <div className="shimmer card" ref={observerTarget}>
-                <span className="shimmer-thumb"></span>
-                <span className="shimmer-tags"></span>
-                <div className="shimmer-img"></div>
-              </div>
-            )}
+            <div className="end-reached card">
+              {"YOU HAVE REACHED THE END : ("}{" "}
+            </div>
           </StackGrid>
         </>
       )}
