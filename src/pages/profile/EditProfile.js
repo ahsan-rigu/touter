@@ -13,7 +13,7 @@ const EditProfile = ({ closeModal, getProfile }) => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "https://touter-bak.onrender.com//api/user/update",
+        "https://touter-bak.onrender.com/api/user/update",
         editedUser,
         {
           headers: { authorization: `Bearer ${token}` },
