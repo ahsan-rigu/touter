@@ -31,7 +31,7 @@ const Profile = () => {
       const {
         data: { profile },
       } = await axios.get(
-        "https://touter-bak.onrender.com//api/user/profile/" + username,
+        "https://touter-bak.onrender.com/api/user/profile/" + username,
         {
           headers: { authorization: `Bearer ${token}` },
         }
