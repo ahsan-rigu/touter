@@ -37,26 +37,19 @@ const Explore = () => {
 
   const observerTarget = useRef(null);
 
+  console.log(observerTarget);
+
   useEffect(() => {
-    console.log(observerTarget);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setPage((prev) => prev + 1);
-        }
-      },
-      { threshold: 1 }
-    );
+    console.log(observerTarget, "hellow");
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setPage((prev) => prev + 1);
+      }
+    });
     if (observerTarget.current) {
       observer.observe(observerTarget.current);
     }
-
-    return () => {
-      if (observerTarget.current) {
-        observer.unobserve(observerTarget.current);
-      }
-    };
-  }, []);
+  }, [observerTarget]);
 
   useEffect(() => {
     fetchPosts();
@@ -83,19 +76,17 @@ const Explore = () => {
             <option value="likes">Popular</option>
           </select>
           <StackGrid columnWidth={columnWidth}>
-            {sortHelper(posts, sort)
-              .filter((none, i) => i < page * 10)
-              .map((post) => (
-                <PostCard post={post} key={post._id} fetchPosts={fetchPosts} />
-              ))}
+            {sortHelper(posts, sort).map((post) => (
+              <PostCard post={post} key={post._id} fetchPosts={fetchPosts} />
+            ))}
             {page * 10 > posts.length && (
               <div className="end-reached card">
                 {"YOU HAVE REACHED THE END : ("}{" "}
               </div>
             )}
             {page * 10 <= posts.length && (
-              <div className="shimmer card">
-                <span className="shimmer-thumb" ref={observerTarget}></span>
+              <div className="shimmer card" ref={observerTarget}>
+                <span className="shimmer-thumb"></span>
                 <span className="shimmer-tags"></span>
                 <div className="shimmer-img"></div>
               </div>
