@@ -33,12 +33,14 @@
     margin-top: 1rem;
     padding: 0;
     vertical-align: top;
-     b{
-        font-size: 1rem;
-    }
-     em{
-        font-size: .75rem;
-    }
+}
+
+.post-card .user-tags b{
+    font-size: 1rem;
+}
+
+.post-card .user-tags em{
+    font-size: .75rem;
 }
 
 .post-card button.active svg{
@@ -144,10 +146,33 @@
 
 .modal-narrow .top-right{
     background-color: inherit;
-    z-index: 999;
+    z-index: 100;
     position: fixed;
+    top: .5rem;
+    right: .5rem;
 }
 
 .link{
     cursor: pointer;
+}
+
+.modal-narrow .thumbnail{
+    width: 3rem;
+    border-radius: 1.5rem;
+    margin: .5rem;
+}
+
+.modal-narrow .user-tags{ 
+    display: inline;
+    margin-top: 1rem;
+    padding: 0;
+    vertical-align: top;
+}
+
+.modal-narrow .user-tags b{
+    font-size: 1rem;
+}
+
+.modal-narrow .user-tags em{
+    font-size: .75rem;
 }

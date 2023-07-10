@@ -17,7 +17,7 @@ footer.footer{
     height: fit-content;
 }
 
-@media only screen and (width < 768px){
+@media only screen and (width <= 620px){
     footer.footer{
         display: flex;
         & .tooltip{

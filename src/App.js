@@ -14,6 +14,7 @@ import { PostContext } from "./contexts/PostContext";
 import Create from "./components/create/Create";
 import Bookmarked from "./pages/bookmarked/Bookmarked";
 import Footer from "./components/footer/Footer";
+import Search from "./pages/search/Search";
 
 function App() {
   const { loggedIn } = useContext(AuthContext);
@@ -25,6 +26,7 @@ function App() {
         <>
           <Header />
           <CreateButton />
+          <Footer />
           {createPostModal && <Create />}
           {editPost._id && <Create />}
         </>
@@ -63,10 +65,9 @@ function App() {
           }
         />
         <Route path="/signin" element={<SIgninSignup />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
-
       <Toaster position="top-center" />
-      <Footer />
     </div>
   );
 }

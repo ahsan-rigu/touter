@@ -21,6 +21,7 @@ const SIgninSignup = () => {
     if (loggedIn) {
       navigate("/");
     }
+    document.title = "Sign In | Touter";
   }, [loggedIn]);
 
   const signinHandler = (event) => {
@@ -53,7 +54,7 @@ const SIgninSignup = () => {
             onClick={() => setSignUp(true)}
             className="btn-secondary"
           >
-            CREATE AND ACCOUNT
+            CREATE AN ACCOUNT
           </button>
         </form>
         <form onSubmit={signupHandler} className="form-signup">

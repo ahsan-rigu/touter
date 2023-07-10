@@ -91,7 +91,7 @@ const Create = () => {
                 Remove Image?
               </button>
             ) : (
-              <CloudinaryUploadWidget setImg={setImg} />
+              <CloudinaryUploadWidget id={"post"} setImg={setImg} />
             )}
           </span>
           <button type="submit" className="btn-post">

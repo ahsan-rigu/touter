@@ -15,7 +15,7 @@ const UserContextProvider = ({ children }) => {
       const token = localStorage.getItem("token");
       if (token) {
         const res = await axios.get(
-          "http://localhost:8080/api/user/fetch-user",
+          "https://touter-bak.onrender.com/api/user/fetch-user",
           {
             headers: { authorization: `Bearer ${token}` },
           }
@@ -31,7 +31,7 @@ const UserContextProvider = ({ children }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:8080/api/user/follow",
+        "https://touter-bak.onrender.com/api/user/follow",
         { followingID },
         {
           headers: { authorization: `Bearer ${token}` },
@@ -52,7 +52,7 @@ const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/user/bookmark",
+        "https://touter-bak.onrender.com/api/user/bookmark",
         {
           postID: _id,
         },
@@ -75,7 +75,7 @@ const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/user/remove-bookmark",
+        "https://touter-bak.onrender.com/api/user/remove-bookmark",
         {
           postID: _id,
         },

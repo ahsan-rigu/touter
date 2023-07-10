@@ -33,10 +33,23 @@ body:has(.dn:checked){
   background-color: rgb(0, 25, 53);
   
   color: white;
+
+  & .modal-narrow{
+    background-color: rgb(0, 25, 53);
+  }
+
+  & .profile-container{
+    background-color: rgb(0, 41, 89);
+  }
+
   & header{
     background-color: rgb(0, 25, 53);
     color: #ffffff;
     box-shadow: rgba(92, 92, 92, 0.1) 0px 48px 100px 0px;
+  }
+
+  & img.profile-picture{
+    background-color: rgb(0, 25, 53);
   }
 
   & footer{
@@ -57,18 +70,35 @@ body:has(.dn:checked){
   & .card {
     background-color: rgb(0, 41, 89);
   }
+
+  & select.sort-drop{
+    background-color: rgb(0, 41, 89);
+  }
 }
 
 body{
   transition: all .5s;
   background-color: #dbffe1;
   color: #343434;
+
+
+  & .modal-narrow{
+    background-color: #dbffe1 !important;
+  }
+
+
+
   & header{
     transition: all .5s;
     color: #343434;
     background-color: #dbffe1;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 48px 100px 0px;
   }
+
+  & img.profile-picture{
+    background-color: #dbffe1;
+  }
+
   & button.primary{
     background-color: #343434;
     color: white;
@@ -89,7 +119,22 @@ body{
     background-color: #cdffd5;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
+
+  & select.sort-drop{
+    background-color: #cdffd5;
+  }
+
+  & .profile-container{
+    background-color: none;
+    & .card{
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
 }
+
+
+
 
 textarea{
   background-color: inherit;
@@ -103,6 +148,7 @@ textarea{
 .modal-wrapper{
   position: fixed !important;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 900;
@@ -110,6 +156,7 @@ textarea{
   justify-items: center;
   align-items: center;
   background-color: #5858583b;
+  overflow: scroll;
 
 }
 
@@ -118,9 +165,27 @@ textarea{
   padding: 1rem;
   border: 1px solid rgba(141, 141, 141, 0.636);
   border-radius: .5rem;
-  height: min(37.5rem, 100vh);
+  height: min(37.5rem, 100%);
   width: min(48rem, 100vw);
   
+}
+
+.modal.narrow{
+  position: relative;
+  width: 20rem;
+}
+
+h2 input{
+  all: inherit;
+  height: fit-content;
+  border: 1px solid rgb(160, 160, 160);
+}
+
+
+em input{
+  all: inherit;
+  text-align: left;
+  max-width: 5rem;
 }
 
 .modal form{
@@ -149,12 +214,77 @@ textarea{
   border-radius: .5rem;
 }
 
-.page{
+.blip{
   animation-name: blip;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 
+.overlay-container{
+  position: relative;
+}
+.profile-grid.blip{
+  margin: auto;
+}
+
+.shimmer.card{
+  height: 17rem;
+  padding: 1rem;
+}
+
+.shimmer-thumb{
+  background-color: rgb(201, 201, 201);
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+}
+
+.shimmer-tags{
+  background-color: rgb(201, 201, 201);
+  height: 1rem;
+  width: 9rem;
+  border-radius: .25rem;
+  display: inline-block;
+  position: relative;
+  top: -1.2rem;
+  left: 1rem;
+}
+
+.shimmer-img{
+  background-color: rgb(201, 201, 201);
+  width: 100%;
+  margin-top: 1rem;
+  height: 10rem;
+  border-radius: .5rem;
+}
+
+
+.overlay-container>button{
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+
+.user-tags *{
+  display: block;
+}
+
+
+
+.profile-pic button{
+  top: -1.1rem;
+  left: .75rem;
+}
+
+.sort-drop{
+  position: fixed;
+  top: 5rem;
+  z-index: 4;
+  right: 1rem;
+  background-color: transparent;
+  padding: .5rem;
+}
 
 .tooltip-below{
   pointer-events: none;
@@ -201,7 +331,7 @@ img{
 
 
 
-@media only screen and (width < 768px){
+@media only screen and (width <= 620px){
   .nav-pc-tab{
     display: none;
   }
@@ -213,3 +343,4 @@ img{
 
 
 }
+

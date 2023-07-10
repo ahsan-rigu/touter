@@ -13,7 +13,10 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
     try {
       console.log(newUser);
-      await axios.post("http://localhost:8080/api/user/signup", newUser);
+      await axios.post(
+        "https://touter-bak.onrender.com/api/user/signup",
+        newUser
+      );
       toast.success("Signed Up", {
         id: "signupsuccess",
       });
@@ -32,7 +35,7 @@ const AuthContextProvider = ({ children }) => {
     try {
       const {
         data: { token },
-      } = await axios.post("http://localhost:8080/api/user/login", {
+      } = await axios.post("https://touter-bak.onrender.com/api/user/login", {
         username,
         password,
       });
@@ -63,7 +66,7 @@ const AuthContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        await axios.get("http://localhost:8080/api/user/authorize", {
+        await axios.get("https://touter-bak.onrender.com/api/user/authorize", {
           headers: { authorization: `Bearer ${token}` },
         });
         setLoggedIn(true);

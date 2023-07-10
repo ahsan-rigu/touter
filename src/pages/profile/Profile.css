@@ -1,0 +1,183 @@
+img.cover{
+    border-radius: .5rem;
+    margin: .5rem;
+    width: calc(100% - 1rem);
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+img.profile-picture{
+    width: 5.5rem;
+    aspect-ratio: 1;
+    border-radius: 2.75rem;
+    padding: .25rem;
+    background-color: inherit;
+}
+
+.container-flex{
+    padding-inline: 1rem;
+    margin-top: -3.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.container-flex button{
+    font-size: 1rem;
+    margin-top: 3rem;
+}
+
+button em{
+    font-size: .75rem;
+    display: block;
+}
+
+.profile-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+.profile-card{
+    border-radius: .5rem;
+    text-align: center;
+    width: 500px;
+    position: relative;
+}
+
+.profile-card .user-tags{
+    display: block;
+}
+.profile-card .user-tags h2{
+    margin-top: -1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.profile-container div.modal-narrow{
+    width: min(20rem, 100vw);
+    height: min(35rem, 100vh);
+    position: absolute;
+    background-color: white;
+    border-radius: .5rem;
+}
+
+.profile-container .modal-narrow .top-right{
+    position: absolute;
+}
+
+.profile-card .user-tags p{
+    text-align: center;
+}
+
+.top-right{
+    z-index: 100;
+    right: .5rem;
+    top: .5rem;
+}
+
+.flex{
+    display: flex;
+}
+
+div.modal-n
+
+.flex span b{
+    display: block;
+    margin-bottom: -.25rem;
+
+}
+
+.btn-name{
+    position: relative;
+    left: .5rem;
+    top: .1rem;
+}
+.bio{
+    margin: 1rem ;
+}
+
+.bio em, .links em{
+    display: block;
+}
+
+.links{
+    padding: 1rem;
+}
+
+.links a{
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.card{
+    margin: .25rem;
+}
+
+.btn-tr{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modal.narrow h2{
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.modal.narrow .user-tags{
+    display: block;
+}
+.modal.narrow .user-tags h2{
+    margin-top: -1rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.modal.narrow .user-tags p{
+    text-align: center;
+}
+
+.modal.narrow textarea{
+    padding: .25rem;
+    width: 100%;
+    min-height: 5rem;
+}
+
+.modal.narrow .links input{
+    width: 100%;
+    padding: .25rem;
+    background-color: transparent;
+    border: 1px solid rgb(121, 121, 121);
+
+}
+
+.modal.narrow p{
+    margin-block: 0;
+}
+
+.modal.narrow button.img-btn{
+
+}
+
+.modal.narrow button.submit-edit{
+    width: calc(100% - 2rem);
+    border: 1px solid currentColor;
+    padding: .5rem;
+    margin-inline: 1rem;
+}
+
+
+
+
+
+@media only screen and (width <= 620px) {
+    img.profile-picture{
+        width: 10rem;
+        border-radius: 5rem;
+        bottom: 6rem;
+    }
+}

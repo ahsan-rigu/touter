@@ -39,33 +39,23 @@
     bottom: .12rem;
 }
 
-.extend-button{
-    transition: transform .4s ;
-    cursor: pointer;
-}
 
-.buttons-right{
+.buttons-rights{
     position: absolute;
     display: flex;
-    transition: .4s;
-    right: -10rem;
+    right: 0;
+    width: 170px;
 }
 
 button:hover svg, a:hover svg{
     color: #ff007b;
 }
 
-.nav-extended{
-    right: -2rem;
-}
 
 #upload_widget{
-    padding: .5rem;
+    padding: .5rem; 
 }
 
-.nav-extended .extend-button{
-    transform: rotate(180deg);
-}
 
 
 
@@ -82,4 +72,10 @@ nav a, nav button{
 
 button{
     cursor: pointer;
+}
+
+@media only screen and (width <= 620px)  {
+    .nav-pc-tab{
+        display: none;
+    }
 }

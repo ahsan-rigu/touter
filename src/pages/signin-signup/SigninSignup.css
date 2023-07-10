@@ -85,4 +85,13 @@
 
 .image-curtain-right h1{
     transform: rotateY(-180deg);
-}
+} 
+
+@media only screen and (width <= 620px){
+    .image-curtain-right, .image-curtain-left, button[type="button"]{
+        display: none;
+    }
+  
+  
+  
+  }

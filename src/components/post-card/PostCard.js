@@ -138,7 +138,7 @@ const PostCard = ({
             <BsTrash size={"1.25rem"} />
           </button>
         </span>
-      ) : !user.following.includes(userID._id) ? (
+      ) : !user.following.find((user) => user._id === userID._id) ? (
         <button
           className="top-right"
           onClick={() => followUnfollow(userID._id)}
@@ -163,7 +163,7 @@ const PostCard = ({
             <BsXLg size={"1.5rem"} />
           </button>
           {likes.map((like) => (
-            <div className="link">
+            <div className="flex">
               <img src={like.profilePicture} alt="dp" className="thumbnail" />
               <span
                 className="user-tags link"

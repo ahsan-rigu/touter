@@ -64,7 +64,8 @@
     align-self: center;
     position: absolute;
     bottom: 3rem;
-    right: 3rem;
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .btn-post {

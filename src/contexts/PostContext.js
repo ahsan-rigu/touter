@@ -14,9 +14,13 @@ const PostContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        await axios.post("http://localhost:8080/api/post/create-post", post, {
-          headers: { authorization: `Bearer ${token}` },
-        });
+        await axios.post(
+          "https://touter-bak.onrender.com/api/post/create-post",
+          post,
+          {
+            headers: { authorization: `Bearer ${token}` },
+          }
+        );
         toast.success("Post Created", {
           id: "postcreationsucess",
         });
@@ -36,9 +40,13 @@ const PostContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        await axios.post("http://localhost:8080/api/post/edit-post", post, {
-          headers: { authorization: `Bearer ${token}` },
-        });
+        await axios.post(
+          "https://touter-bak.onrender.com/api/post/edit-post",
+          post,
+          {
+            headers: { authorization: `Bearer ${token}` },
+          }
+        );
         setEditPost({});
         toast.success("Post Edited", {
           id: "postEditSucess",
@@ -59,7 +67,7 @@ const PostContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/post/like",
+        "https://touter-bak.onrender.com/api/post/like",
         {
           postID,
         },
@@ -83,7 +91,7 @@ const PostContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8080/api/post/remove-comment",
+        "https://touter-bak.onrender.com/api/post/remove-comment",
         {
           postID: _id,
           comment,
@@ -108,7 +116,7 @@ const PostContextProvider = ({ children }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8080/api/post/comment",
+        "https://touter-bak.onrender.com/api/post/comment",
         {
           postID: _id,
           comment,
@@ -134,7 +142,7 @@ const PostContextProvider = ({ children }) => {
     if (token) {
       try {
         await axios.post(
-          "http://localhost:8080/api/post/delete-post",
+          "https://touter-bak.onrender.com/api/post/delete-post",
           { postID: _id },
           {
             headers: { authorization: `Bearer ${token}` },

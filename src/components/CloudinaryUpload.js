@@ -39,7 +39,7 @@ class CloudinaryUploadWidget extends Component {
         }
       }
     );
-    document.getElementById("upload_widget").addEventListener(
+    document.getElementById(this.props.id).addEventListener(
       "click",
       function () {
         myWidget.open();
@@ -50,7 +50,7 @@ class CloudinaryUploadWidget extends Component {
 
   render() {
     return (
-      <button id="upload_widget">
+      <button id={this.props.id}>
         <BsCamera size={"1.5rem"} className="icon" />
       </button>
     );
