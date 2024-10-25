@@ -22,7 +22,7 @@ const Explore = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.get(
-        "https://touter-bak.onrender.com/api/post/posts",
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/post/posts",
         {
           headers: { authorization: `Bearer ${token}` },
         }

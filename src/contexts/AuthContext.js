@@ -14,7 +14,7 @@ const AuthContextProvider = ({ children }) => {
     try {
       console.log(newUser);
       await axios.post(
-        "https://touter-bak.onrender.com/api/user/signup",
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/user/signup",
         newUser
       );
       toast.success("Signed Up", {
@@ -35,10 +35,13 @@ const AuthContextProvider = ({ children }) => {
     try {
       const {
         data: { token },
-      } = await axios.post("https://touter-bak.onrender.com/api/user/login", {
-        username,
-        password,
-      });
+      } = await axios.post(
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/user/login",
+        {
+          username,
+          password,
+        }
+      );
       localStorage.setItem("token", token);
       setLoggedIn(true);
       toast.success("Welcome Back", {
@@ -66,9 +69,12 @@ const AuthContextProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        await axios.get("https://touter-bak.onrender.com/api/user/authorize", {
-          headers: { authorization: `Bearer ${token}` },
-        });
+        await axios.get(
+          "https://touter-f228e9b8c7a1.herokuapp.com/api/user/authorize",
+          {
+            headers: { authorization: `Bearer ${token}` },
+          }
+        );
         setLoggedIn(true);
         toast.success("Welcome Back", {
           id: "tokenverified",

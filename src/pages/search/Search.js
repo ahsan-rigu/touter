@@ -12,7 +12,7 @@ const Search = () => {
     const token = localStorage.getItem("token");
     try {
       const { data } = await axios.get(
-        "https://touter-bak.onrender.com/api/user/recommended",
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/user/recommended",
         {
           headers: { authorization: `Bearer ${token}` },
         }

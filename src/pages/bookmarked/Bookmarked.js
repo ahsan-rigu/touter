@@ -20,7 +20,7 @@ const Bookmarked = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.get(
-        "https://touter-bak.onrender.com/api/post/bookmarked",
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/post/bookmarked",
         {
           headers: { authorization: `Bearer ${token}` },
         }

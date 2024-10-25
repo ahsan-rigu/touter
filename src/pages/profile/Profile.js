@@ -31,7 +31,8 @@ const Profile = () => {
       const {
         data: { profile },
       } = await axios.get(
-        "https://touter-bak.onrender.com/api/user/profile/" + username,
+        "https://touter-f228e9b8c7a1.herokuapp.com/api/user/profile/" +
+          username,
         {
           headers: { authorization: `Bearer ${token}` },
         }
